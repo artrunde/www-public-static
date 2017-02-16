@@ -27,18 +27,20 @@ end
 # Helpers
 ###
 
-# Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
-
-# Build-specific configuration
 configure :build do
+  
   # Minify CSS on build
-  # activate :minify_css
+  activate :minify_css
 
   # Minify Javascript on build
-  # activate :minify_javascript
+  activate :minify_javascript
+  
+end
+
+# ------------------------------------------------------------------------------
+# S3 sync. IAM profile is setup as CircleCI ENV
+# ------------------------------------------------------------------------------
+activate :s3_sync do |s3_sync|
+  s3_sync.bucket                = 'dev-www.artrunde.com'
+  s3_sync.region                = 'eu-central-1'
 end

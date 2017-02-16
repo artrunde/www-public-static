@@ -3,7 +3,7 @@ machine:
     version: 2.3.3 
 compile:
   override:
-    - bundle exec middleman contentful && bundle exec middleman build --verbose
+    - bundle exec middleman build
 deployment:
   production:
     branch: master
