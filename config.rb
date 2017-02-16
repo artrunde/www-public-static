@@ -40,7 +40,7 @@ end
 # ------------------------------------------------------------------------------
 # S3 sync. IAM profile is setup as CircleCI ENV
 # ------------------------------------------------------------------------------
-activate :s3_sync do |s3_sync|
-  s3_sync.bucket                = 'dev-www.artrunde.com'
-  s3_sync.region                = 'eu-central-1'
-end
+#activate :s3_sync do |s3_sync|
+#  s3_sync.bucket                = 'dev-www.artrunde.com'
+#  s3_sync.region                = 'eu-central-1'
+#end
