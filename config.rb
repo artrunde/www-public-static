@@ -35,6 +35,11 @@ configure :build do
   # Minify Javascript on build
   activate :minify_javascript
   
+  # Asset hash for unique asset names. This makes sure everytime we make a new asset it gets a different name, and is not cached.  
+  activate :asset_hash
+
+  activate :asset_host, :host => '//dev-assets.artrunde.com.s3-website.eu-central-1.amazonaws.com/'  
+  
 end
 
 # ------------------------------------------------------------------------------
