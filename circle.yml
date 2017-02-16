@@ -8,4 +8,9 @@ deployment:
   production:
     branch: master
     commands:
-      - aws s3 sync build/ s3://dev-www.artrunde.com --delete
+      - aws s3 sync build/ s3://www.artrunde.com --delete
+  development:
+    branch: development
+    commands:
+      - aws s3 sync build/ s3://dev-www.artrunde.com --delete --exclude "*.png" && aws s3 sync build/ s3://assets-www.artrunde.com --delete --include "images/*.png"
+
