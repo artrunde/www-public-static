@@ -3,9 +3,9 @@ machine:
     version: 2.3.3 
 compile:
   override:
-    - bundle exec middleman contentful && bundle exec middleman build --verbose
+    - bundle exec middleman build --verbose
 deployment:
   production:
     branch: master
     commands:
-      - bundle exec middleman s3_sync
+      - aws s3 sync build/ s3://dev-www.artrunde.com --delete
