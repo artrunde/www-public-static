@@ -3,15 +3,9 @@ machine:
     version: 2.3.3 
 compile:
   override:
-    - bundle exec middleman build --verbose
+    - bundle exec middleman build --verbose --environment=$CIRCLE_BRANCH
 deployment:
-  production:
-    branch: master
-    commands:
-      - bash circleci-helpers/upload.bash prd
-  development:
-    branch: development
-    commands:
-      - bash circleci-helpers/upload.bash dev
+  commands:
+    - bash circleci-helpers/upload.bash $CIRCLE_BRANCH
 
      
