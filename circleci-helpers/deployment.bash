@@ -1,6 +1,4 @@
 #!/bin/bash
-BRANCH=$1
-
 echo -n "Working dir: "
 pwd
 
@@ -16,12 +14,12 @@ function development {
   aws s3 sync build/ s3://dev-assets.artrunde.com --exclude "*" --include "images/*"	
 }
 
-if [[ $BRANCH == "master" ]]
+if [[ $CIRCLE_BRANCH == "master" ]]
 then
   production
 fi
 
-if [[ $BRANCH == "development" ]]
+if [[ $CIRCLE_BRANCH == "development" ]]
 then
   development
 fi
