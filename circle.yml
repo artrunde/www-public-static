@@ -4,6 +4,9 @@ machine:
 compile:
   override:
     - bash circleci-helpers/compile.bash
+dependencies:
+  pre:
+    - bash circleci-helpers/pre.bash
 deployment:
   production:
     branch: master
