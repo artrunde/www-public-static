@@ -16,12 +16,12 @@ function development {
   aws s3 sync build/ s3://dev-assets.artrunde.com --exclude "*" --include "images/*"	
 }
 
-if [[ $BRANCH == "master" ]]
+if [[ $BRANCH == "prd" ]]
 then
   production
 fi
 
-if [[ $BRANCH == "development" ]]
+if [[ $BRANCH == "dev" ]]
 then
   development
 fi
