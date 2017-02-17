@@ -14,6 +14,8 @@ test:
     - git clone git@github.com:artrunde/terraform-infrastructure.git --branch master
     - export S3_WWW_PATH=$(./terraform output -state=terraform-infrastructure/dev/services/frontend/terraform.tfstate s3_www_bucket_id)
     - export S3_ASSETS_PATH=$(./terraform output -state=terraform-infrastructure/dev/services/frontend/terraform.tfstate s3_assets_bucket_id)
+    - ./terraform output -state=terraform-infrastructure/dev/services/frontend/terraform.tfstate s3_www_bucket_id
+    - ./terraform output -state=terraform-infrastructure/dev/services/frontend/terraform.tfstate s3_assets_bucket_id
 deployment:
   production:
     branch: master
