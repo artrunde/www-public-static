@@ -5,7 +5,14 @@ compile:
   override:
     - bundle exec middleman build --verbose --environment=$CIRCLE_BRANCH
 deployment:
-  commands:
-    - bash circleci-helpers/upload.bash $CIRCLE_BRANCH
+  production:
+    branch: master
+      commands:
+        - bash circleci-helpers/upload.bash $CIRCLE_BRANCH
+  development:
+    branch: development
+      commands:
+        - bash circleci-helpers/upload.bash $CIRCLE_BRANCH
+
 
      
