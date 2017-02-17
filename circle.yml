@@ -8,8 +8,8 @@ deployment:
   production:
     branch: master
     commands:
-      - bash circleci-helpers/upload.bash prd
+      - bash circleci-helpers/upload.bash $CIRCLE_BRANCH
   development:
     branch: development
     commands:
-      - bash circleci-helpers/upload.bash dev
+      - bash circleci-helpers/upload.bash $CIRCLE_BRANCH
