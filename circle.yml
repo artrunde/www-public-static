@@ -6,7 +6,9 @@ compile:
     - bash circleci-helpers/compile.bash
 dependencies:
   pre:
-    - bash circleci-helpers/pre.bash
+    - wget https://releases.hashicorp.com/terraform/0.8.7/terraform_0.8.7_linux_amd64.zip
+    - unzip terraform_0.8.7_linux_amd64.zip
+    - ./terraform --version
 deployment:
   production:
     branch: master
