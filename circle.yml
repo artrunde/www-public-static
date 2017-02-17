@@ -3,7 +3,7 @@ machine:
     version: 2.3.3 
 compile:
   override:
-    - bash circleci-helpers/compile.bash
+    - bundle exec middleman build --verbose --environment=$CIRCLE_BRANCH
 dependencies:
   pre:
     - wget https://releases.hashicorp.com/terraform/0.8.7/terraform_0.8.7_linux_amd64.zip
@@ -13,8 +13,10 @@ deployment:
   production:
     branch: master
     commands:
-      - bash circleci-helpers/deployment.bash
+      - aws s3 sync build/ s3://www.artrunde.com --delete --exclude "*.png"
+      - aws s3 sync build/ s3://assets.artrunde.com --exclude "*" --include "images/*"
   development:
     branch: development
     commands:
-      - bash circleci-helpers/deployment.bash
+      - aws s3 sync build/ s3://dev-www.artrunde.com --delete --exclude "*.png"
+      - aws s3 sync build/ s3://dev-assets.artrunde.com --exclude "*" --include "images/*"
