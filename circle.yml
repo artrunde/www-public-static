@@ -18,8 +18,7 @@ deployment:
   production:
     branch: master
     commands:
-      - aws s3 sync build/ s3://www.artrunde.com --delete --exclude "*.png"
-      - aws s3 sync build/ s3://assets.artrunde.com --exclude "*" --include "images/*"
+      - echo "No production system ready yet..."
   development:
     branch: development
     commands:
